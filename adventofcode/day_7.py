@@ -28,5 +28,15 @@ def part_two(data):
             fuel_cost.append(sum([x for x in range(1, movements+1)]))
         totals.append(sum(fuel_cost))
     return min(totals)
-print(part_one(data))
+# print(part_one(data))
 # print(part_two(data))
+
+# reddit solution
+# https://www.reddit.com/r/adventofcode/comments/rawxad/2021_day_7_part_2_i_wrote_a_paper_on_todays/
+
+cost1 = float('inf')
+cost2 = float('inf')
+for y in range(min(data),max(data)):
+    cost1 = min(cost1,sum([abs(x-y) for x in data]))
+    cost2 = min(cost2,sum([(abs(x-y)*(abs(x-y)+1)//2) for x in data]))
+print(cost1,cost2)
